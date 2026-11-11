@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="一个分享前后端开发、算法与工程实践的个人技术博客" />
+  <title>CodeNest · 个人技术博客</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="logo">
+        <img src="file:///D:/niufu/glogo.png" alt="CodeNest" style="height:48px;width:auto;vertical-align:middle;margin-right:10px;" />
+        <span class="logo-mark">{"</span>CodeNest<span class="logo-mark">"}</span>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="index.html" class="active">首页</a>
+        <a href="#categories">分类</a>
+        <a href="#tags">标签</a>
+        <a href="about.html">关于</a>
+      </nav>
+      <div class="nav-actions">
+        <button id="themeToggle" class="icon-btn" title="切换主题">🌙</button>
+        <button id="menuToggle" class="icon-btn menu-btn" title="菜单">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container" style="margin-top:20px;">
+    <img src="file:///D:/niufu/gggb.png" alt="首页横幅" style="max-width:70%;height:auto;display:block;margin:0 auto;border-radius:12px;" />
+  </div>
+
+  <section class="hero">
+    <div class="container">
+      <h1 class="hero-title">你好，我是 <span class="accent">The Shy</span> 👋</h1>
+      <p class="hero-sub">记录代码、思考与成长 —— 专注前后端开发、算法与系统设计。</p>
+      <div class="hero-tags">
+        <span class="chip">JavaScript</span>
+        <span class="chip">TypeScript</span>
+        <span class="chip">Rust</span>
+        <span class="chip">Go</span>
+        <span class="chip">系统设计</span>
+      </div>
+    </div>
+  </section>
+
+  <main class="container main-grid">
+    <section class="posts">
+      <h2 class="section-title">最新文章</h2>
+
+      <article class="post-card featured">
+        <div class="post-card-body">
+          <div class="post-meta">
+            <span class="cat cat-featured">精选</span>
+            <time datetime="2026-09-10">2026-09-10</time>
+          </div>
+          <h3 class="post-title"><a href="post.html">从零设计一个高并发消息队列</a></h3>
+          <p class="post-excerpt">本文从生产者-消费者模型出发，逐步拆解一个支持百万级 TPS 的消息队列的核心模块：存储引擎、索引、批量拉取与背压机制……</p>
+          <div class="post-footer">
+            <span class="tag">系统设计</span>
+            <span class="tag">分布式</span>
+            <span class="read-more"><a href="post.html">阅读全文 →</a></span>
+          </div>
+        </div>
+      </article>
+
+      <article class="post-card">
+        <div class="post-card-body">
+          <div class="post-meta">
+            <span class="cat">前端</span>
+            <time datetime="2026-09-05">2026-09-05</time>
+          </div>
+          <h3 class="post-title"><a href="post.html">React 19 中的 use() Hook 深度解析</a></h3>
+          <p class="post-excerpt">React 19 引入了可以在组件中直接读取 Promise 的 use() Hook，它与 Suspense 如何协作？有哪些陷阱？本文带你一探究竟。</p>
+          <div class="post-footer">
+            <span class="tag">React</span>
+            <span class="tag">Hooks</span>
+            <span class="read-more"><a href="post.html">阅读全文 →</a></span>
+          </div>
+        </div>
+      </article>
+
+      <article class="post-card">
+        <div class="post-card-body">
+          <div class="post-meta">
+            <span class="cat">后端</span>
+            <time datetime="2026-08-28">2026-08-28</time>
+          </div>
+          <h3 class="post-title"><a href="post.html">Go 语言内存逃逸分析实战</a></h3>
+          <p class="post-excerpt">通过 go build -gcflags=-m 工具分析真实项目中的内存逃逸案例，理解栈与堆分配的权衡，写出更高效的 Go 代码。</p>
+          <div class="post-footer">
+            <span class="tag">Go</span>
+            <span class="tag">性能优化</span>
+            <span class="read-more"><a href="post.html">阅读全文 →</a></span>
+          </div>
+        </div>
+      </article>
+
+      <article class="post-card">
+        <div class="post-card-body">
+          <div class="post-meta">
+            <span class="cat">算法</span>
+            <time datetime="2026-08-20">2026-08-20</time>
+          </div>
+          <h3 class="post-title"><a href="post.html">动态规划从入门到放弃（再到精通）</a></h3>
+          <p class="post-excerpt">用状态定义 + 转移方程 + 空间压缩三步法，系统掌握背包、区间、状压等经典 DP 题型，附带 20 道真题模板。</p>
+          <div class="post-footer">
+            <span class="tag">算法</span>
+            <span class="tag">DP</span>
+            <span class="read-more"><a href="post.html">阅读全文 →</a></span>
+          </div>
+        </div>
+      </article>
+
+      <article class="post-card">
+        <div class="post-card-body">
+          <div class="post-meta">
+            <span class="cat">Rust</span>
+            <time datetime="2026-08-12">2026-08-12</time>
+          </div>
+          <h3 class="post-title"><a href="post.html">用 Rust 重写一个 JSON 解析器</a></h3>
+          <p class="post-excerpt">借助 nom 组合子实现一个零拷贝、支持流式的 JSON 解析器，并与 serde_json 做性能基准对比。</p>
+          <div class="post-footer">
+            <span class="tag">Rust</span>
+            <span class="tag">编译原理</span>
+            <span class="read-more"><a href="post.html">阅读全文 →</a></span>
+          </div>
+        </div>
+      </article>
+
+      <div class="pagination">
+        <button class="page-btn active">1</button>
+        <button class="page-btn">2</button>
+        <button class="page-btn">3</button>
+        <button class="page-btn">下一页 →</button>
+      </div>
+    </section>
+
+    <aside class="sidebar">
+      <div class="widget" id="categories">
+        <h3 class="widget-title">分类</h3>
+        <ul class="cat-list">
+          <li><a href="#">前端 <span>12</span></a></li>
+          <li><a href="#">后端 <span>18</span></a></li>
+          <li><a href="#">算法 <span>9</span></a></li>
+          <li><a href="#">系统设计 <span>7</span></a></li>
+          <li><a href="#">Rust <span>5</span></a></li>
+        </ul>
+      </div>
+
+      <div class="widget" id="tags">
+        <h3 class="widget-title">标签云</h3>
+        <div class="tag-cloud">
+          <a href="#" class="cloud-tag">JavaScript</a>
+          <a href="#" class="cloud-tag">TypeScript</a>
+          <a href="#" class="cloud-tag">React</a>
+          <a href="#" class="cloud-tag">Vue</a>
+          <a href="#" class="cloud-tag">Go</a>
+          <a href="#" class="cloud-tag">Rust</a>
+          <a href="#" class="cloud-tag">Kubernetes</a>
+          <a href="#" class="cloud-tag">Docker</a>
+          <a href="#" class="cloud-tag">MySQL</a>
+          <a href="#" class="cloud-tag">Redis</a>
+        </div>
+      </div>
+
+      <div class="widget">
+        <h3 class="widget-title">热门文章</h3>
+        <ol class="hot-list">
+          <li><a href="post.html">从零设计一个高并发消息队列</a></li>
+          <li><a href="post.html">Go 语言内存逃逸分析实战</a></li>
+          <li><a href="post.html">React 19 中的 use() Hook 深度解析</a></li>
+          <li><a href="post.html">动态规划从入门到放弃</a></li>
+        </ol>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="logo">
+          <span class="logo-mark">{"</span>CodeNest<span class="logo-mark">"}</span>
+        </div>
+        <p class="footer-desc">用代码构筑世界，用文字记录思考。</p>
+      </div>
+      <div>
+        <h4>导航</h4>
+        <ul>
+          <li><a href="index.html">首页</a></li>
+          <li><a href="about.html">关于</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>联系</h4>
+        <ul>
+          <li><a href="mailto:hello@example.com">hello@example.com</a></li>
+          <li><a href="https://github.com" target="_blank">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© 2026 CodeNest. All rights reserved.</div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

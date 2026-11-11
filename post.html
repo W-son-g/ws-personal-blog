@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>从零设计一个高并发消息队列 · CodeNest</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="logo">
+        <img src="file:///D:/niufu/glogo.png" alt="CodeNest" style="height:48px;width:auto;vertical-align:middle;margin-right:10px;" />
+        <span class="logo-mark">{"</span>CodeNest<span class="logo-mark">"}</span>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="index.html">首页</a>
+        <a href="about.html">关于</a>
+      </nav>
+      <div class="nav-actions">
+        <button id="themeToggle" class="icon-btn" title="切换主题">🌙</button>
+        <button id="menuToggle" class="icon-btn menu-btn" title="菜单">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container post-layout">
+    <article class="article">
+      <header class="article-header">
+        <a href="index.html" class="back-link">← 返回列表</a>
+        <h1 class="article-title">从零设计一个高并发消息队列</h1>
+        <div class="article-meta">
+          <span class="cat cat-featured">精选</span>
+          <time datetime="2026-09-10">2026-09-10</time>
+          <span>· 阅读约 12 分钟</span>
+        </div>
+      </header>
+
+      <div class="article-content">
+        <h2>一、为什么需要消息队列</h2>
+        <p>消息队列（Message Queue）是分布式系统中的核心基础设施，主要解决三大问题：<strong>解耦</strong>、<strong>异步</strong>、<strong>削峰</strong>。当用户请求量瞬时暴增时，MQ 可以作为缓冲层保护下游服务。</p>
+
+        <h2>二、核心架构</h2>
+        <p>一个典型的 MQ 由以下模块组成：</p>
+        <ul>
+          <li><strong>Producer</strong>：生产者，负责发送消息</li>
+          <li><strong>Broker</strong>：消息代理，存储与转发</li>
+          <li><strong>Consumer</strong>：消费者，订阅并处理消息</li>
+        </ul>
+
+        <h2>三、存储引擎设计</h2>
+        <p>为了支撑百万级 TPS，我们采用 <em>顺序写 + 零拷贝</em> 的设计。消息以追加方式写入磁盘文件，通过 offset 索引定位。</p>
+
+        <pre><code class="language-go">// 简化的追加写逻辑
+func (s *Store) Append(msg []byte) (offset int64, err error) {
+    s.mu.Lock()
+    defer s.mu.Unlock()
+
+    n, err := s.file.Write(msg)
+    if err != nil {
+        return 0, err
+    }
+    offset = s.offset
+    s.offset += int64(n)
+    s.index.Put(offset, n)
+    return offset, nil
+}</code></pre>
+
+        <blockquote>
+          <p>💡 顺序写的性能接近内存写，这是 Kafka、RocketMQ 等主流 MQ 的共同选择。</p>
+        </blockquote>
+
+        <h2>四、消费模型</h2>
+        <p>支持两种消费语义：<strong>At-Least-Once</strong> 和 <strong>Exactly-Once</strong>。前者实现简单，后者需要配合事务或幂等机制。</p>
+
+        <h2>五、总结</h2>
+        <p>设计一个生产级 MQ 涉及存储、网络、一致性等多个领域。本文只覆盖了核心骨架，后续将深入探讨主从同步、位点提交与故障恢复。</p>
+      </div>
+
+      <div class="article-tags">
+        <span class="tag">系统设计</span>
+        <span class="tag">分布式</span>
+        <span class="tag">消息队列</span>
+      </div>
+
+      <div class="article-nav">
+        <a href="post.html" class="nav-prev">← 上一篇：Go 语言内存逃逸分析</a>
+        <a href="post.html" class="nav-next">下一篇：React 19 use() Hook →</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="copyright">© 2026 CodeNest. All rights reserved.</div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
