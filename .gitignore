@@ -1,0 +1,34 @@
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ---------- 课程资料与本地 IDE 安装包（体积巨大、与博客本体无关） ----------
+The Shy/
+
+# ---------- 编译产物 ----------
+*.exe
+*.obj
+*.o
+*.a
+*.dll
+
+# ---------- 系统与编辑器 ----------
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/
+*.swp
+
+# ---------- 密钥 / 本地配置 ----------
+.env
+.env.*
+!.env.example
+*.local
